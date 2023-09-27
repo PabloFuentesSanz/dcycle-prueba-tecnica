@@ -20,7 +20,7 @@ function Ejercicio1() {
   //States
   const [name, setName] = useState<string>('');
   const [data, setData] = useState<Data | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   //Chakra Hooks
   const toast = useToast();
@@ -64,9 +64,10 @@ function Ejercicio1() {
         age: ageData,
       });
     } catch (err) {
+      setLoading(false);
       toast({
         title: 'Error querying the name.',
-        description: 'Please try again later.',
+        description: 'Please insert a valid name or try again later.',
         status: 'error',
         position: 'top-right',
         duration: 2500,
@@ -78,7 +79,7 @@ function Ejercicio1() {
   return (
     <main>
       <BackHome />
-      <Heading as="h1" size="4xl" >
+      <Heading as="h1" size="4xl">
         Who Could You Be
       </Heading>
       <FormControl mb={10} mt={10}>
@@ -86,7 +87,12 @@ function Ejercicio1() {
           placeholder="Insert name here"
           onChange={(e) => setName(e.target.value)}
         />
-        <Button size="lg" className="custom-button" mt={10} onClick={handleSubmit}>
+        <Button
+          size="lg"
+          className="custom-button"
+          mt={10}
+          onClick={handleSubmit}
+        >
           Who might I be <SearchIcon ml={3} />
         </Button>
       </FormControl>

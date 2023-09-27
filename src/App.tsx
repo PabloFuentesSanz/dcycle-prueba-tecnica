@@ -13,8 +13,8 @@ function App() {
         <Router>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/ejercicio1" element={<Ejercicio1 />} />
-              <Route path="/ejercicio2" element={<Ejercicio2 />} />
+              <Route path="/WhoCouldYouBe" element={<Ejercicio1 />} />
+              <Route path="/CovidChronicle" element={<Ejercicio2 />} />
             </Routes>
         </Router>
       </ChakraProvider>

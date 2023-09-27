@@ -1,5 +1,8 @@
 import { Spinner } from '@chakra-ui/react';
 
+/**
+ * A spinner component indicating a loading state.
+ */
 function Loading() {
   return (
     <div>

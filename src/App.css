@@ -1,3 +1,4 @@
+/*** COMMON STYLES ***/
 #root {
   max-width: 1200px;
   margin: 0 auto;
@@ -5,8 +6,8 @@
   display: flex;
   padding: 2em;
 }
-body{
-  background-color: #F8F8FB  !important;
+body {
+  background-color: #f8f8fb !important;
 }
 main {
   width: 100%;
@@ -19,6 +20,28 @@ h1 {
   -webkit-background-clip: text;
 }
 
+button.custom-button {
+  background-image: linear-gradient(270deg, var(--sec-color), var(--pr-color));
+  color: white;
+  transition: 0.4s;
+}
+button.custom-button:hover {
+  background-image: linear-gradient(270deg, var(--sec-color), var(--pr-color));
+  opacity: 0.8;
+}
+
+button.back-button {
+  background-color: transparent;
+  color: var(--pr-color);
+}
+
+button.home-button {
+  margin: 30px;
+  background-color: transparent;
+  color: var(--pr-color);
+}
+
+/*** EJERCICIO 1 STYLES ***/
 .card {
   margin: auto;
   text-align: left;
@@ -36,17 +59,8 @@ h1 {
   margin-right: 10px;
 }
 
-button.custom-button{
-  background-image: linear-gradient(270deg, var(--sec-color), var(--pr-color));
-  color:white;
-  transition: 0.4s;
-}
-button.custom-button:hover{
-  background-image: linear-gradient(270deg, var(--sec-color), var(--pr-color));
-  opacity: 0.8;
-}
-
-button.back-button{
-  background-color: transparent;
-  color: var(--pr-color);
+/***EJERCICIO 2 STYLES ***/
+.table {
+  height: 50vh;
+  overflow-y: scroll !important;
 }

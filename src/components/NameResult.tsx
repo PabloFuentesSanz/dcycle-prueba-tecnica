@@ -63,7 +63,7 @@ const NameResult: React.FC<Props> = ({ data }) => {
               <UnorderedList>
                 {data?.nationality?.country.map((res) => {
                   return (
-                    <ListItem>
+                    <ListItem key={res.country_id}>
                       <div className="nation-result">
                         <Text fontSize="md">
                           {`${(res.probability * 100).toFixed(

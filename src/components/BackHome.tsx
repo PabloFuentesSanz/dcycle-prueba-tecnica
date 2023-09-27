@@ -2,8 +2,15 @@ import { Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 
+/**
+ * A button component that redirects users back to the Home page.
+ */
 function BackHome() {
+  /*** HOOKS ***/
+  //Routing
   const navigate = useNavigate();
+
+  /*** FUNCTIONALITIES ***/
   const navigateBack = () => {
     if (document.startViewTransition) {
       const transition = document.startViewTransition(() => {
@@ -13,11 +20,11 @@ function BackHome() {
       transition.ready.then(() => {
         document.documentElement.animate(
           {
-            transform: ['translateY(0%)', 'translateY(100%)'],
+            transform: ['translateX(0%)', 'translate(-100%)'],
             zIndex: [1, 1],
           },
           {
-            duration: 800,
+            duration: 1000,
             easing: 'ease-out',
             pseudoElement: '::view-transition-old(root)',
           }
