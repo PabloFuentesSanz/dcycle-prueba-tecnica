@@ -64,3 +64,11 @@ button.home-button {
   height: 50vh;
   overflow-y: scroll !important;
 }
+
+.covid-title{
+  color: #696969
+}
+
+.covid-value{
+  color: #aaa;
+}

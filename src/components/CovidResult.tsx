@@ -77,11 +77,6 @@ const CovidResult: React.FC<Props> = ({ data }) => {
                     Outcomes
                   </Button>
                 </Td>
-                <Td>
-                  <Button onClick={() => handleClickDate(item.date, 'all')}>
-                    All Report
-                  </Button>
-                </Td>
               </Tr>
             );
           })}

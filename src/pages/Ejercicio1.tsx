@@ -43,6 +43,11 @@ function Ejercicio1() {
 
   /*** FUNCTIONALITIES ***/
   //Handles
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+        handleSubmit(e);
+    }
+}
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -86,6 +91,7 @@ function Ejercicio1() {
         <Input
           placeholder="Insert name here"
           onChange={(e) => setName(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <Button
           size="lg"

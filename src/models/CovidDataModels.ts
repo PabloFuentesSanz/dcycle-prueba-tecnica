@@ -57,3 +57,8 @@ export interface FieldDefinition {
   deprecated: boolean;
   prior_names: string[];
 }
+
+export interface Detail {
+  label: string;
+  value: string | number | null;
+}
