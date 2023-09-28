@@ -9,10 +9,10 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-import NameResult from "../components/NameResult";
+import NameResult from "../components/ejercicio1/NameResult";
 import { Data, Age, Nationality, Gender } from "../models/NameModels";
-import BackHome from "../components/BackHome";
-import Loading from "../components/Loading";
+import BackHome from "../components/general/BackHome";
+import Loading from "../components/general/Loading";
 import { SearchIcon } from "@chakra-ui/icons";
 
 function Ejercicio1() {

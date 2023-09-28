@@ -1,10 +1,10 @@
 import { Heading, useToast } from '@chakra-ui/react';
-import BackHome from '../components/BackHome';
+import BackHome from '../components/general/BackHome';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { GeneralData } from '../models/CovidDataModels';
-import Loading from '../components/Loading';
-import CovidResult from '../components/CovidResult';
+import Loading from '../components/general/Loading';
+import CovidResult from '../components/ejercicio2/CovidResult';
 
 function Ejercicio2() {
   /*** HOOKS ***/

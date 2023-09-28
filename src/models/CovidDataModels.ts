@@ -62,3 +62,11 @@ export interface Detail {
   label: string;
   value: string | number | null;
 }
+
+export interface ChartType {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: (number | null)[];
+  }[];
+}

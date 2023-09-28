@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { CovidData, GeneralData } from '../models/CovidDataModels';
+import { CovidData, GeneralData } from '../../models/CovidDataModels';
 import { Button, Input, Modal, useDisclosure } from '@chakra-ui/react';
 import CovidDetails from './CovidDetails';
 import { Table, Thead, Tr, Th, Td, TableContainer } from '@chakra-ui/react';
+import GenericChart from './GenericChart';
 interface Props {
   data: GeneralData;
 }
@@ -85,7 +86,7 @@ const CovidResult: React.FC<Props> = ({ data }) => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         {selectedData.data && selectedData.type && (
-          <CovidDetails data={selectedData.data} type={selectedData.type} />
+          <CovidDetails data={selectedData.data} globalData={data.data} type={selectedData.type} />
         )}
       </Modal>
     </>
