@@ -1,10 +1,10 @@
-import { Heading, useToast } from '@chakra-ui/react';
-import BackHome from '../components/general/BackHome';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { GeneralData } from '../models/CovidDataModels';
-import Loading from '../components/general/Loading';
-import CovidResult from '../components/ejercicio2/CovidResult';
+import { Heading, useToast } from "@chakra-ui/react";
+import BackHome from "../components/general/BackHome";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { GeneralData } from "../models/CovidDataModels";
+import Loading from "../components/general/Loading";
+import CovidResult from "../components/ejercicio2/CovidResult";
 
 function Ejercicio2() {
   /*** HOOKS ***/
@@ -24,12 +24,13 @@ function Ejercicio2() {
           .get(`http://localhost:3200/api/covid/historical`)
           .then((res) => res.data);
         setData(covidData);
-      } catch (error) { //Check a possible API error
+      } catch (error) {
+        //Check a possible API error
         toast({
-          title: 'Error receiving data.',
-          description: 'Please try again later.',
-          status: 'error',
-          position: 'top-right',
+          title: "Error receiving data.",
+          description: "Please try again later.",
+          status: "error",
+          position: "top-right",
           duration: 2500,
           isClosable: true,
         });
@@ -40,12 +41,13 @@ function Ejercicio2() {
   }, [toast]);
 
   useEffect(() => {
-    if (data) { //Prevent initial render
+    if (data) {
+      //Prevent initial render
       setLoading(false);
       toast({
-        title: 'COVID data received successfully',
-        status: 'success',
-        position: 'top-right',
+        title: "COVID data received successfully",
+        status: "success",
+        position: "top-right",
         duration: 2000,
         isClosable: true,
       });

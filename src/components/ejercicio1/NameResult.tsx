@@ -13,28 +13,12 @@ import {
   UnorderedList,
   ListItem,
 } from "@chakra-ui/react";
+import { capitalize, genderEmoji } from "../../utils/nameFunctions";
 
 interface Props {
   data: Data;
 }
-
 const NameResult: React.FC<Props> = ({ data }) => {
-  function capitalize(input: string) {
-    if (!input) return "";
-    return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
-  }
-
-  function genderEmoji(gender: string): string {
-    switch (gender?.toLowerCase()) {
-      case "male":
-        return "♂️";
-      case "female":
-        return "♀️";
-      default:
-        return "⚧️";
-    }
-  }
-
   return (
     <>
       <Card mt={10} className="card">

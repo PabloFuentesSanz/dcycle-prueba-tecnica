@@ -25,9 +25,8 @@ interface Props {
   globalData: ChartType | null;
   selectedDate: string;
 }
-
 const GenericChart: React.FC<Props> = ({ globalData, selectedDate }) => {
-  const options  = {
+  const options = {
     responsive: true,
     plugins: {
       legend: {

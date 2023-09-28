@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { CovidData, GeneralData } from '../../models/CovidDataModels';
-import { Button, Input, Modal, useDisclosure } from '@chakra-ui/react';
-import CovidDetails from './CovidDetails';
-import { Table, Thead, Tr, Th, Td, TableContainer } from '@chakra-ui/react';
-import GenericChart from './GenericChart';
+import React, { useState } from "react";
+import { CovidData, GeneralData } from "../../models/CovidDataModels";
+import { Button, Input, Modal, useDisclosure } from "@chakra-ui/react";
+import CovidDetails from "./CovidDetails";
+import { Table, Thead, Tr, Th, Td, TableContainer } from "@chakra-ui/react";
+import GenericChart from "./GenericChart";
 interface Props {
   data: GeneralData;
 }
 const CovidResult: React.FC<Props> = ({ data }) => {
   /*** HOOKS ***/
   // States
-  const [filterDate, setFilterDate] = useState('');
+  const [filterDate, setFilterDate] = useState("");
   const [selectedData, setSelectedData] = useState<{
     data: CovidData | null;
     type: string | null;
@@ -26,12 +26,12 @@ const CovidResult: React.FC<Props> = ({ data }) => {
     setSelectedData({ data: dateData, type });
     onOpen();
   }
-  
+
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     setFilterDate(event.target.value);
   }
-  
-  //Filtering  
+
+  //Filtering
   function findDataByDate(date: string): CovidData {
     return data.data.filter((item) => item.date == date)[0];
   }
@@ -62,18 +62,18 @@ const CovidResult: React.FC<Props> = ({ data }) => {
               <Tr key={item.date}>
                 <Td>{item.date}</Td>
                 <Td>
-                  <Button onClick={() => handleClickDate(item.date, 'cases')}>
+                  <Button onClick={() => handleClickDate(item.date, "cases")}>
                     Cases
                   </Button>
                 </Td>
                 <Td>
-                  <Button onClick={() => handleClickDate(item.date, 'testing')}>
+                  <Button onClick={() => handleClickDate(item.date, "testing")}>
                     Testing
                   </Button>
                 </Td>
                 <Td>
                   <Button
-                    onClick={() => handleClickDate(item.date, 'outcomes')}
+                    onClick={() => handleClickDate(item.date, "outcomes")}
                   >
                     Outcomes
                   </Button>
@@ -86,7 +86,11 @@ const CovidResult: React.FC<Props> = ({ data }) => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         {selectedData.data && selectedData.type && (
-          <CovidDetails data={selectedData.data} globalData={data.data} type={selectedData.type} />
+          <CovidDetails
+            data={selectedData.data}
+            globalData={data.data}
+            type={selectedData.type}
+          />
         )}
       </Modal>
     </>

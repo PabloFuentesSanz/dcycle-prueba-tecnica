@@ -52,7 +52,7 @@ function Ejercicio1() {
   useEffect(() => {
     setLoading(false);
     // Check if data response is relevant (Prevent initial render)
-    if ( 
+    if (
       data &&
       data.age.age &&
       data.gender.gender &&
@@ -60,7 +60,8 @@ function Ejercicio1() {
     ) {
       setValidData(true);
       successToast();
-    } else if(data){ // Error if data response is not relevant
+    } else if (data) {
+      // Error if data response is not relevant
       setValidData(false);
       errorToast();
     }
@@ -95,10 +96,12 @@ function Ejercicio1() {
           nationality: nationalData,
           age: ageData,
         });
-      } else { //Error if name is empty
+      } else {
+        //Error if name is empty
         errorToast();
       }
-    } catch (err) { //Check a possible API error
+    } catch (err) {
+      //Check a possible API error
       setLoading(false);
       errorToast();
     }
