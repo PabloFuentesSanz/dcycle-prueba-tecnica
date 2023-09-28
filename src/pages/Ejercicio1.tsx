@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 
 import {
   Input,
@@ -6,78 +6,101 @@ import {
   Button,
   useToast,
   FormControl,
-} from '@chakra-ui/react';
-import axios from 'axios';
+} from "@chakra-ui/react";
+import axios from "axios";
 
-import NameResult from '../components/NameResult';
-import { Data, Age, Nationality, Gender } from '../models/NameModels';
-import BackHome from '../components/BackHome';
-import Loading from '../components/Loading';
-import { SearchIcon } from '@chakra-ui/icons';
+import NameResult from "../components/NameResult";
+import { Data, Age, Nationality, Gender } from "../models/NameModels";
+import BackHome from "../components/BackHome";
+import Loading from "../components/Loading";
+import { SearchIcon } from "@chakra-ui/icons";
 
 function Ejercicio1() {
   /*** HOOKS ***/
   //States
-  const [name, setName] = useState<string>('');
+  const [name, setName] = useState<string>("");
   const [data, setData] = useState<Data | null>(null);
+  const [validData, setValidData] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   //Chakra Hooks
   const toast = useToast();
+  const successToast = useCallback(() => {
+    toast({
+      title: "Name Submission Successful.",
+      description:
+        "The name has been successfully processed, and relevant data has been retrieved.",
+      status: "success",
+      position: "top-right",
+      duration: 2500,
+      isClosable: true,
+    });
+  }, [toast]);
+
+  const errorToast = useCallback(() => {
+    toast({
+      title: "Error querying the name.",
+      description: "Please insert a valid name or try again later.",
+      status: "error",
+      position: "top-right",
+      duration: 2500,
+      isClosable: true,
+    });
+  }, [toast]);
 
   //Effects
   useEffect(() => {
-    if (data) {
-      setLoading(false);
-      toast({
-        title: 'Name Submission Successful.',
-        description:
-          'The name has been successfully processed, and relevant data has been retrieved.',
-        status: 'success',
-        position: 'top-right',
-        duration: 2500,
-        isClosable: true,
-      });
+    setLoading(false);
+    // Check if data response is relevant (Prevent initial render)
+    if ( 
+      data &&
+      data.age.age &&
+      data.gender.gender &&
+      data.nationality.country
+    ) {
+      setValidData(true);
+      successToast();
+    } else if(data){ // Error if data response is not relevant
+      setValidData(false);
+      errorToast();
     }
-  }, [data, toast]);
+  }, [data, errorToast, successToast]);
 
   /*** FUNCTIONALITIES ***/
   //Handles
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-        handleSubmit(e);
+    if (e.key === "Enter") {
+      handleSubmit(e);
     }
-}
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      setLoading(true);
-      const genderData: Gender = await axios
-        .get(`http://localhost:3200/api/genderize/${name}`)
-        .then((res) => res.data);
-      const nationalData: Nationality = await axios
-        .get(`http://localhost:3200/api/nationalize/${name}`)
-        .then((res) => res.data);
-      const ageData: Age = await axios
-        .get(`http://localhost:3200/api/agify/${name}`)
-        .then((res) => res.data);
+      //Check if name is not empty
+      if (name !== "") {
+        setLoading(true);
+        const genderData: Gender = await axios
+          .get(`http://localhost:3200/api/genderize/${name}`)
+          .then((res) => res.data);
+        const nationalData: Nationality = await axios
+          .get(`http://localhost:3200/api/nationalize/${name}`)
+          .then((res) => res.data);
+        const ageData: Age = await axios
+          .get(`http://localhost:3200/api/agify/${name}`)
+          .then((res) => res.data);
 
-      setData({
-        gender: genderData,
-        nationality: nationalData,
-        age: ageData,
-      });
-    } catch (err) {
+        setData({
+          gender: genderData,
+          nationality: nationalData,
+          age: ageData,
+        });
+      } else { //Error if name is empty
+        errorToast();
+      }
+    } catch (err) { //Check a possible API error
       setLoading(false);
-      toast({
-        title: 'Error querying the name.',
-        description: 'Please insert a valid name or try again later.',
-        status: 'error',
-        position: 'top-right',
-        duration: 2500,
-        isClosable: true,
-      });
+      errorToast();
     }
   };
 
@@ -103,7 +126,7 @@ function Ejercicio1() {
         </Button>
       </FormControl>
       {loading && <Loading />}
-      {data && !loading && <NameResult data={data} />}
+      {data && validData && !loading && <NameResult data={data} />}
     </main>
   );
 }

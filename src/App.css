@@ -66,9 +66,9 @@ button.home-button {
 }
 
 .covid-title{
-  color: #696969
+  color: var(--dark-font);
 }
 
 .covid-value{
-  color: #aaa;
+  color: var(--light-font);
 }

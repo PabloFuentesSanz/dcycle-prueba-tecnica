@@ -53,7 +53,7 @@ const CovidResult: React.FC<Props> = ({ data }) => {
           <Thead>
             <Tr>
               <Th>Date of the report</Th>
-              <Th>See the report</Th>
+              <Th>See the reports</Th>
             </Tr>
           </Thead>
           {filteredDates?.map((item) => {

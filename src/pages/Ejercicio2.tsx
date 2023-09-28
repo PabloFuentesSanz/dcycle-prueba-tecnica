@@ -24,7 +24,7 @@ function Ejercicio2() {
           .get(`http://localhost:3200/api/covid/historical`)
           .then((res) => res.data);
         setData(covidData);
-      } catch (error) {
+      } catch (error) { //Check a possible API error
         toast({
           title: 'Error receiving data.',
           description: 'Please try again later.',
@@ -40,7 +40,7 @@ function Ejercicio2() {
   }, [toast]);
 
   useEffect(() => {
-    if (data) {
+    if (data) { //Prevent initial render
       setLoading(false);
       toast({
         title: 'COVID data received successfully',
