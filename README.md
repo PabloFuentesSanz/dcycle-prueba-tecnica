@@ -29,7 +29,7 @@
 6. **ColorPalette.css** donde se han definido como variables la paleta de colores usada en el proyecto.
 
    ![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/c449523c-4242-40a6-a1fd-51dc8d8992c3)
-   ![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/10c7274a-3e6c-4b3f-a52a-6112d91744a5)
+![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/d56506d1-9290-4f27-824d-15fefa489466)
 ![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/e9384feb-3a11-46e6-8170-5656a854e5bb)
 ![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/6c772a70-8a52-4c10-949c-0a2131ecc52d)
 
