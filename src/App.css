@@ -65,10 +65,10 @@ button.home-button {
   overflow-y: scroll !important;
 }
 
-.covid-title{
+.dark-font{
   color: var(--dark-font);
 }
 
-.covid-value{
+.light-font{
   color: var(--light-font);
 }

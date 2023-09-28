@@ -1,5 +1,5 @@
-import React from 'react';
-import { Data } from '../models/NameModels';
+import React from "react";
+import { Data } from "../models/NameModels";
 import {
   Box,
   Card,
@@ -12,7 +12,7 @@ import {
   Image,
   UnorderedList,
   ListItem,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 interface Props {
   data: Data;
@@ -20,18 +20,18 @@ interface Props {
 
 const NameResult: React.FC<Props> = ({ data }) => {
   function capitalize(input: string) {
-    if (!input) return '';
+    if (!input) return "";
     return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
   }
 
   function genderEmoji(gender: string): string {
     switch (gender?.toLowerCase()) {
-      case 'male':
-        return '♂️';
-      case 'female':
-        return '♀️';
+      case "male":
+        return "♂️";
+      case "female":
+        return "♀️";
       default:
-        return '⚧️';
+        return "⚧️";
     }
   }
 
@@ -39,15 +39,15 @@ const NameResult: React.FC<Props> = ({ data }) => {
     <>
       <Card mt={10} className="card">
         <CardHeader>
-          <Heading size="md">
+          <Heading size="md" className="dark-font">
             {capitalize(data?.age?.name)}'s Probable Data:
           </Heading>
         </CardHeader>
         <CardBody>
-          <Stack divider={<StackDivider />} spacing="4">
+          <Stack divider={<StackDivider />} spacing="4" className="light-font">
             <Box>
               <Text pt="2" fontSize="md">
-                <strong>Probable Gender: </strong>
+                <strong className="dark-font">Probable Gender: </strong>
                 {`${capitalize(data?.gender?.gender)} ${genderEmoji(
                   data?.gender?.gender
                 )}`}
@@ -55,11 +55,12 @@ const NameResult: React.FC<Props> = ({ data }) => {
             </Box>
             <Box>
               <Text pt="2" fontSize="md">
-                <strong>Probable Age:</strong> {data?.age?.age} years
+                <strong className="dark-font">Probable Age:</strong>{" "}
+                {data?.age?.age} years
               </Text>
             </Box>
             <Box>
-              <strong>Probable Nationalities:</strong>
+              <strong className="dark-font">Probable Nationalities:</strong>
               <UnorderedList>
                 {data?.nationality?.country.map((res) => {
                   return (
@@ -68,7 +69,7 @@ const NameResult: React.FC<Props> = ({ data }) => {
                         <Text fontSize="md">
                           {`${(res.probability * 100).toFixed(
                             1
-                          )}% probability of being from`}{' '}
+                          )}% probability of being from`}{" "}
                         </Text>
                         <Image
                           src={`https://flagcdn.com/16x12/${res.country_id.toLowerCase()}.png`}
