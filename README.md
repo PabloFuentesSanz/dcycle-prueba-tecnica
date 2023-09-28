@@ -11,25 +11,31 @@
 5. Se han usado unas pequeñas view-transitions para darle algo de dinamismo al desplazarse entre páginas. Esta funcionalidad está limitada en algunos navegadores. 
 
 # Organización del proyecto:
-1. Una carpeta pages con los componentes más genéricos que conforman las páginas de la aplicación y que están enrutados.
+1. Una carpeta **pages** con los componentes más genéricos que conforman las páginas de la aplicación y que están enrutados.
    * **Home**: La página principal en la que puedes elegir a qué ejercicio acceder.
    * **Ejercicio1**: Enrutado como WhoCouldYouBe, es el ejercicio que devuelve la información pasado un nombre.
    * **Ejercicio2**: Enrutado como CovidChronicle, es el ejercicio que muestra registros del COVID en USA por días.
-2. Una carpeta components donde se encuentran los componentes genéricos y otros componentes específicos de ambos ejercicios.
-   * **BackHome**: Es el botón que permite volver al Home
-   * **Loading**: Es el spinner de carga que se muestra mientras está realizando la llamada a la API.
-   * **NameResult**: El componente del ejercicio 1 donde se muestran los resultados del nombre insertado.
-   * **CovidResult**: El componente del ejercicio 2 donde se despliega la lista de fechas de los registros.
-   * **CovidDetails**: El componente que muestra en detalle el registro que se solicita.
-   * **DataRow**: Componente que muestra de forma genérica las filas de la información de cada tipo de los resultados de la API de COVID.
-4. Una carpeta models con los modelos de datos.
+2. Una carpeta **components** donde se encuentran los componentes genéricos y otros componentes específicos de ambos ejercicios.
+   - En la carpeta **general** encontraremos los componentes genéricos:
+     * **BackHome**: Es el botón que permite volver al Home
+     * **Loading**: Es el spinner de carga que se muestra mientras está realizando la llamada a la API.
+   - En la carpeta **ejercicio1** encontraremos los componentes del Ejercicio 1: 
+     * **NameResult**: El componente del ejercicio 1 donde se muestran los resultados del nombre insertado.
+   - En la carpeta **ejercicio2** encontraremos los componentes del Ejercicio 2:
+     * **CovidResult**: El componente del ejercicio 2 donde se despliega la lista de fechas de los registros.
+     * **CovidDetails**: El componente que muestra en detalle el registro que se solicita.
+     * **DataRow**: Componente que muestra de forma genérica las filas de la información de cada tipo de los resultados de la API de COVID.
+     * **GenericChart**: Componente que representa un gráfico de los datos recibidos en función del tipo que sean.
+4. Una carpeta **models** con los modelos de datos.
    * **NameModels**: Los modelos del ejercicio 1.
    * **CovidDataModels**: Los modelos del ejercicio 2.
-5. **App.css** para los estilos generales y algunos específicos.
-6. **ColorPalette.css** donde se han definido como variables la paleta de colores usada en el proyecto.
+5. Una carpeta **utils** con funciones extraidas de la aplicacion.
+6. **App.css** para los estilos generales y algunos específicos.
+7. **ColorPalette.css** donde se han definido como variables la paleta de colores usada en el proyecto.
 
-   ![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/c449523c-4242-40a6-a1fd-51dc8d8992c3)
-![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/d56506d1-9290-4f27-824d-15fefa489466)
-![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/e9384feb-3a11-46e6-8170-5656a854e5bb)
-![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/6c772a70-8a52-4c10-949c-0a2131ecc52d)
+![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/b7ba8fe3-3f25-4adf-b66f-1d205eb8dd1f)
+![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/6be854d9-42e9-4f7f-a1b3-6190fd7b7be3)
+![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/aa4366c6-8d3f-4ef8-9f4e-ddfc8e960d7f)
+![image](https://github.com/PabloFuentesSanz/dcycle-prueba-tecnica/assets/51823158/293a2b6c-95e0-4c43-85e5-9a15c7628bbf)
+
 
